@@ -1,33 +1,27 @@
 import React from 'react'
-import Header from './Header'
+import { EditableString } from './EditableString'
+import { Dropdown } from './Dropdown'
+import { Radiobutton } from './Radiobutton'
 
-const Body = ({rows, keys}) => {
+const Body = ({rows, keys, editCell}) => {
     return (
-        <tbody>
+        <tbody className="" >
             {rows.map((row,i) => {
                 return (
-                    <tr key={i}>
-                    { keys.map(key =>{
-                        const cell = row[key]                        
-                        console.log(row[key])
+                    <tr key={i} >
+                    { keys.map((key) =>{
+                        const cell = row[key]
                         switch(cell.type) {
                             case 'dropdown': 
-                                return <td>
-                                    <select>
-                                    {cell.value.map(o => <option>{o}</option>)}
-                                    </select>
-                                </td>
+                                return <Dropdown key={cell.value} cell={cell}/>
                             case 'radiobutton':
-                                return <td>
-                                {cell.value.map(o => (
-                                    <div>
-                                    <input type='radio' value={o} name={key}/>
-                                    <label>{o}</label>
-                                    </div>
-                                ))}
-                                </td>
+                                return <Radiobutton key={cell.value} row={row} cellKey={key} cell={cell} />
                             case 'number' :
-                                return <td>{cell.value}</td>
+                                return <td key={cell.value} >{cell.value}</td>
+                            case 'string' :
+                                return <td key={cell.value}>{cell.value}</td>
+                            case 'editable-string' :
+                                return <EditableString key={cell.value} cell={cell} editCell={editCell} index={i} cellKey={key} />
                             default:
                                 return <td> </td>
                         }
@@ -36,14 +30,6 @@ const Body = ({rows, keys}) => {
                     </tr>
                 )
             }
-                
-            //     <tr key={i}>{
-            //     // row.map(c => {
-            //     //     console.log(c)
-            //     //     // 
-            //     //     // }
-            //     // })
-            // }</tr>
             )}
         </tbody>
     )

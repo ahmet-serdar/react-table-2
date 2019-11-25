@@ -4,7 +4,7 @@ import Table from './components/Table'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App table-responsive">
      <Table />
     </div>
   );

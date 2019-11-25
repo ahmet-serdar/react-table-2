@@ -1,12 +1,8 @@
 import React from 'react'
 
-const style = {
-
-}
-
-const Header = ({header, style}) => {
+const Header = ({header}) => {
     return (
-        <thead>
+        <thead className="thead-dark">
             <tr>
                 {header.map((e, i) => <th key={i}>{e}</th>)}
             </tr>

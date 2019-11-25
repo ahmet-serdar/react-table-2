@@ -14,7 +14,7 @@ export const tableDefinition = [
     { name: "price", title: "Price" }
   ];
   
-  export const rows = [
+  export const tableRows = [
     {
       id: {
           type: 'string',
@@ -30,15 +30,18 @@ export const tableDefinition = [
       },
       size:{
           type: 'dropdown',
-          value:['xs', 's', 'm' , 'l', 'xl']
+          value:['xs', 's', 'm' , 'l', 'xl'],
+          defaultValue: 'm'
       },
       color:{
           type:'radiobutton', 
-          value: ['white', 'beige', 'dark blue', 'indian red' ]
+          value: ['white', 'beige', 'dark blue', 'indian red' ],
+          defaultValue:'beige'
       },
       delivery:{
           type: 'radiobutton',
-          value: ['standart', 'fast', 'express']
+          value: ['standart', 'fast', 'express'],
+          defaultValue:'express'
       },       
       rating: {
           type: 'string',
@@ -64,15 +67,18 @@ export const tableDefinition = [
         },
         size:{
             type: 'dropdown',
-            value:['xs', 's', 'm' , 'l', 'xl']
+            value:['xs', 's', 'm' , 'l', 'xl'],
+            defaultValue:'m'
         },
         color:{
             type:'radiobutton', 
-            value: ['black', 'beige', 'dark blue', 'indian red' ]
+            value: ['black', 'beige', 'dark blue', 'indian red' ],
+            defaultValue:'black'
         },
         delivery:{
             type: 'radiobutton',
-            value: ['standart', 'fast', 'express']
+            value: ['standart', 'fast', 'express'],
+            defaultValue:'standart'
         },       
         rating: {
             type: 'string',
